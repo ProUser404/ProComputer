@@ -1,0 +1,838 @@
+/*ОСНОВНАЯ ТАБЛИЦА СТИЛЕЙ*/
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto');
+
+details{
+  display: block;
+  background: linear-gradient(0deg, rgba(2, 37, 153, 0.8), rgba(1, 176, 162, 0.5));
+  width: 70%;
+  border-radius: 45px;
+  border: white, solid 1px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+}
+summary::-webkit-details-marker{display:none;}
+summary::-moz-list-bullet{list-style-type:none;}
+summary::marker{display:none;} 
+summary {
+   display: block;
+   padding: 3px 0px 3px 0px;
+   border-bottom: 1px solid #e2e8f0;
+   box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.8);
+   font-size: 1.4em;
+   cursor: pointer;
+   position: relative;
+}
+summary:after {  
+  top: 0.4em;
+  right: 0.9em;
+  color: transparent;
+  width: 1em;
+  height: 1em;  
+  content: "";
+  position: absolute;
+  transition: transform .5s;
+}
+details[open] > summary:after {
+  transform: rotate(90deg);
+}
+summary ~ * {
+   padding: 0 1em 10px 1.4em;
+}
+details[open] summary ~ *{ 
+  animation: sweep .5s ease-in-out;
+}
+
+.closed:after {  
+  top: 0.4em;
+  right: 0.9em;
+  color: transparent;
+  width: 1em;
+  height: 1em;  
+  content: "";
+  position: absolute;
+  transition: transform .5s;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0;}
+  100%  {opacity: 1;}
+}
+summary:focus {
+  outline:0;
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.3), inset 0 0 2px rgba(0,0,0,0.3);
+}
+@-ms-viewport { 
+  width: device-width;
+ }
+ @-o-viewport { 
+  width: device-width;
+ }
+ @viewport { 
+  width: device-width;
+ }
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  scroll-behavior: smooth; /*Плавная прокрутка веб-страниц*/
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  text-align: justify; 
+  font-size: 14px;
+  background-color: rgb(235, 235, 235);
+}
+
+header {
+  position: relative;
+  background: radial-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) ), url(../images/webdes1.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header-main {
+  background: radial-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) ), url(../images/background_header.png);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* МЕНЮ */
+/* Контейнер меню навигации */
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Arial';
+  background: linear-gradient(90deg, rgba(2, 37, 153, 0.8), rgba(1, 176, 162, 0.5));
+}
+
+#logo-img {
+  padding-right: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 2rem;
+}
+
+#menu {
+  position: relative;
+}
+
+/* Ссылки в меню */
+.navbar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  font-size: 1.5em;
+  color: rgb(238, 237, 237);
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Выпадающий контейнер */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Кнопка выпадения */
+.dropdown .dropbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  color: rgb(237, 237, 237);
+  padding: 10px 10px;
+  background-color: inherit;
+  font-family: inherit; /* Важно для выравнивания по вертикали на мобильных телефонах */
+  margin: 0; /* Важно для выравнивания по вертикали на мобильных телефонах */
+}
+
+/* Добавление фона выпадающих ссылок */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: navy;
+  color: rgb(4, 255, 176);
+  /**transform: scale(1.05);**/
+  transition-duration: 0.5s; 
+  
+}
+.dropdown a:hover {
+  transform: scale(1.04);
+  color: rgb(233, 233, 233);
+  transition-duration: 0.5s;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.2),
+             0 0  3px 3px rgba(0,0,0,0.3),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+  border-radius: 5px;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+  width: 20%;
+  display: none;
+  position: absolute;
+  background-color: rgb(25, 105, 171);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+/* Ссылки в выпадающем содержимом */
+.dropdown-content a {
+  float: none;
+  color: rgb(4, 255, 176);
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+
+  
+}
+
+/* Добавление фона выпадающих ссылок при наведении */
+.dropdown-content a:hover {
+  background-color: rgb(94, 182, 255);
+  transition-duration: 0.5s;
+  
+  
+}
+
+/* Показ меню при наведении */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* КНОПКИ */
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  -moz-transition: transform 1s ease 0s, opacity 0s ease 0.9s;
+  -webkit-transition: transform 1s ease 0s, opacity 0s ease 0.9s;
+  -o-transition: transform 1s ease 0s, opacity 0s ease 0.9s;
+  transition: transform 1s ease 0s, opacity 0s ease 0.9s;
+
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 40px;
+  margin-top: 10px;
+  margin-bottom: 27px;
+  border-radius: 30px;
+  background-image: linear-gradient(-80deg, #024a9b 0%, #409acb 50%, #002878 100%);
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  font-family: 'Roboto', sans-serif;
+  font-style: oblique;
+  letter-spacing: 3px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #04fae5;
+  box-shadow: 0 16px 16px 0 rgba(0, 40, 120, .35);
+  transition: 0.7s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+  background-position: 0 0;
+  color: #37f9bf;
+  scale: 99%;
+}
+
+/* СПИСКИ */
+
+.spisok0 {
+  font-size: 1.3em;
+  font-family: monospace;
+}
+ul, ol, li {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  text-align: justify;
+  text-indent: 0px;
+  line-height: 1.3;
+  color: dimgray;
+  
+}
+
+.s-size {
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 0px;
+  line-height: 1.15;
+  color: black;
+  font-size: 0.8rem;
+}
+.m-size {
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 0px;
+  line-height: 1.15;
+  color: black;
+  font-size: 1rem;
+}
+.l-size {
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 0px;
+  line-height: 1.15;
+  color: black;
+  font-size: 1.5rem;
+}
+.xl-size {
+  font-family: sans-serif;
+  text-align: justify;
+  text-indent: 0px;
+  line-height: 1.5;
+  color: black;
+  font-size: 2rem;
+}
+
+
+
+/*Заголовки*/
+
+.visually-hidden {    /*скрытые заголовки, необходимые для семантического анализа алгоритмами скрининга веб-страинц*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', monospace;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  padding-top: 6vh;
+}
+
+h2 {
+  padding-top: 1vh;
+  color: rgb(69, 69, 120);
+  text-align: center;
+  font-family: 'Arial';
+  font-size: 2.5rem;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+
+h3 {
+  color: rgb(42, 66, 114);
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+h4, h5, h6 {
+  color: rgb(44, 41, 87);
+  text-align: center;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 1.5rem, 1.3rem, 1.1rem;
+  letter-spacing: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+.neontext {
+  font-size: calc(36px + 16 * ((100vw - 320px) / (1280px - 320px)));
+  color: #fff;
+
+  text-shadow:
+    /*0 0 7px #fff,
+    0 0 10px #fff,*/
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fc,
+    /*0 0 102px #0fa,*/
+    0 0 128px #0fa;
+}
+
+
+
+/*Абзацы*/
+.blockquote {
+  float: right;
+}
+
+.epigraph {
+  display: inline-block;
+  background: linear-gradient(45deg, rgba(30,	89, 69, 0.5), rgba(48, 213,	200, 0.5));
+  border-radius: 8px;
+  text-align: justify;
+  text-indent: 2em;
+  margin: 1vh 5vw;
+  padding: 5px 10px;
+  color: #e3e3e3;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: clamp(14px, 3vw, 32px);
+  line-height: 1.2em;
+  letter-spacing: 1px;
+  transition: 1s;
+  max-width: fit-content;
+}
+
+.announcement {
+  position: relative;
+  display: inline;
+  width: 30%;
+  height: 100%;
+  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: calc(1.6rem + 16 * ((100vw - 320px) / (1280px - 320px)));
+  background: none;
+}
+
+.author {
+  font-size: 0.8em;
+  float: right;
+  padding-top: 1em;
+}
+
+article {
+  text-align: justify;
+  margin: 5px;
+  background: whitesmoke;
+  color: black;
+}
+
+.statya {
+  background: whitesmoke;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 80vw;
+  height: 100%;
+  text-align: justify;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: calc(1.4rem + 16 * ((100vw - 320px) / (1280px - 320px)));
+  border-radius: 8px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  font-family: sans-serif, monospace;
+  font-size: 1.2rem;
+  text-align: justify;
+  color: dimgrey;  /* #505050 */
+  text-indent: 30px;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+.termin {
+  font-family: monospace;
+  font-size: 0.8rem;
+  text-align: justify;
+  text-indent: 0px;
+}
+
+caption {
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: navy;
+  margin-bottom: 7px;
+  margin-top: 15px;
+}
+
+/*Гиперссылки и кнопки*/
+a {
+  text-decoration: none;
+  color: navy;
+  font-family: sans-serif;
+}
+
+.tricolor a {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 100;
+  position: absolute;
+
+}
+
+.tricolor {
+  background: linear-gradient(to bottom, #FFFFFF, #4169E1, #E34234);
+  height: 100%;
+  position: relative;
+
+}
+
+.a-button {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.a-reg {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: 'Roboto';
+  font-size: 15px;
+
+}
+
+
+.a-subject {
+  font-size: 20px;
+  transition-duration: .5s;
+}
+
+.a-subject:hover {
+  font-size: 16px;
+  transition-duration: .5s;
+}
+
+.button-reg {
+  padding: 5px;
+  border: none;
+  background-color: navy;
+  border-radius: 45px;
+}
+
+.button-reg:hover {
+  padding: 5px;
+  border: none;
+  background-color: #219B17;
+  border-radius: 45px;
+
+}
+
+/*Стили таблиц*/
+table {
+  font-family: 'Roboto', sans-serif;
+  color: dimgray;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 400px;
+  max-width: 1000px;
+  padding: 3px;
+  border-radius: 0px 0px 8px 8px;
+  background: #4682B4;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border: none;
+  z-index: 1;
+}
+
+td, th {
+  padding: 10px;
+  font-family: 'Arial';
+  text-align: center; /*Форматирование текста по центру*/
+  border: solid rgb(101, 101, 101) 1px;
+  border-radius: 5px;
+  background: rgb(219, 219, 219,);
+  color: black;
+  border: none;
+}
+
+.LibreOffice, .logo:hover {
+  transform: scale(110%);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.opisanie {
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  text-align: justify;
+}
+
+dt {
+  font-weight: bold;
+  text-align: left;
+  font-size: 0.9rem;
+}
+dd {
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+
+/*Видео*/
+
+video .videofon {
+  display: block;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  max-width: 1320px;
+  align-items: center;
+}
+
+/*Изображения*/
+
+.logo {
+  display: flex;
+  float: left;
+  background: rgba(219, 219, 219, 0);
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 60px;
+  padding: 0px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  box-shadow: none;
+  border-radius: 8px;
+}
+
+.jumbotron {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient( rgba(139, 255, 247, 0.1), rgba(58, 255, 52, 0.1) ), url(../images/webdes1.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  text-align: justify;
+  position: relative;
+  overflow: hidden;
+}
+
+.jumbotron p {
+  color: whitesmoke;
+  font-family: 'Roboto', sans-serif;
+  font-size: calc(1.2rem + 16 * ((100vw - 320px) / (1280px - 320px)));
+  width: 50vw;
+}
+
+#LO{
+	position: relative;
+	display: inline-block;
+}
+#LO.podskazka {
+transition: all 0.6s;
+opacity: 0;
+position: absolute;
+left: 0; bottom: 0;
+background: rgba(5,13,156,.55);
+color: #fff;
+text-align: center;
+font-family: cursive;
+font-size: 14px;
+padding: 3px 0;
+width: 100%;
+transform: scale(0);
+}
+#tiger2:hover .text{
+	opacity: 1;
+}
+
+
+.img-right {
+  float: right;
+  margin: 5px 20px 5px 10px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  box-shadow: 6px 6px 4px gray;
+  max-width: 500px;
+  min-width: 100px;
+}
+
+.img-center {
+  float: center;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  box-shadow: 6px 6px 4px gray;
+  max-width: 500px;
+  min-width: 100px;
+}
+
+.img-left {
+  float: left;
+  margin: 5px 20px 10px 5px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  box-shadow: 3px -6px 2px gray;
+  max-width: 500px;
+  min-width: 100px;
+}
+
+.img-button {
+  width: 10%;
+}
+
+.image {
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 6px 6px 5px gray;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+  transition-duration: 1s;
+}
+.image:hover {
+  margin: 20px;
+  border-radius: 5px;
+  transform: scale(110%);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.5);
+  transition-duration: 1s;
+}
+
+/*Контейнеры*/
+
+.sitename {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  margin-top: 12vh;
+}
+
+.parallax {
+  background:  url(../media/background/bazaznaniy.mp4);
+  max-height: 100%;
+}
+
+.centered {    /* Centered text */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.LibreOffice {
+  display: flex;
+  float: left;
+  align-items: top;
+  align-content: top;
+  justify-content: center;
+}
+
+
+
+
+/*Шрифты*/
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("ttf"), url("../fonts/Roboto-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/*Подвал*/
+
+#footer {
+  width: 100%;
+  height: 50vh;
+  background-image: url(../images/class.jpg);
+  background: linear-gradient( rgba(168, 236, 232, 0.5), rgba(177, 247, 175, 0.5) ), url(../images/class.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  text-align: justify;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.filterdiv {
+  backdrop-filter: blur(7px);
+  height: 100%;
+}
+
+.footer-div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 25vh;
+  column-gap: 2vw;
+  row-gap: 10px;
+  position: relative;
+  margin: auto;
+  max-width: fit-content;
+  align-items: center;
+
+}
+
+.footer-list li {
+  list-style: none;
+  color: #7109AA;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto';
+  line-height: 1.5rem;
+}
+
+.footer-list li:hover {
+  color: #7109AA;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.partners {
+  
+  background-color: rgba(255, 255, 255, 0.0);
+  position: relative;
+  width: 15vh;
+}
